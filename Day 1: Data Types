@@ -1,0 +1,31 @@
+SUBMISSION
+C++
+#include <bits/stdc++.h>
+using namespace std;;
+
+
+int main()
+{
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int a=4;
+    double b=4.0;
+    string s="HackerRank ";
+    int n;
+    double d;
+
+    cin >> n >> d;
+
+    cin.ignore();
+
+    string ss;
+    getline(cin, ss);
+
+    n = n + a;
+    d = d + b;
+
+    cout << n << endl;
+    cout << fixed << setprecision(1) << d << endl;
+    cout << s + ss << endl;
+
+    return 0;
+}
