@@ -1,0 +1,34 @@
+SUBMISSION
+C++
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string sp;
+     cin>>sp;
+     string s, p;
+     int n=sp.size();
+     for(int i=0;i<n;i+=2)
+     {
+         s+=sp[i];
+         if(i+1<n)
+         {
+            p+=sp[i+1];
+         }
+     }
+     cout<<s<<" "<<p<<endl;
+    }
+     
+     
+}
+ 
