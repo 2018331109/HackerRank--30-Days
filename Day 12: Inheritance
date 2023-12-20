@@ -1,0 +1,74 @@
+SUBMISSION
+
+import java.io.*;
+import java.util.*;
+
+class Person {
+    protected String first, last;
+    protected int id;
+
+    Person(String first, String last, int id) {
+        this.first = first;
+        this.last = last;
+        this.id = id;
+    }
+
+    public void display() {
+        System.out.println("Name: " + last + ", " + first);
+        System.out.println("ID: " + id);
+    }
+}
+
+class Student extends Person {
+    private int[] scores;
+
+    Student(String first, String last, int id, int[] scores) {
+        super(first, last, id);
+        this.scores = scores;
+    }
+
+    public char calculate() {
+        int total = 0;
+        for (int it : scores) {
+            total += it;
+        }
+
+        int average = total / scores.length;
+
+        if (average >= 90 && average <= 100) {
+            return 'O';
+        } else if (average >= 80 && average < 90) {
+            return 'E';
+        } else if (average >= 70 && average < 80) {
+            return 'A';
+        } else if (average >= 55 && average < 70) {
+            return 'P';
+        } else if (average >= 40 && average < 55) {
+            return 'D';
+        } else {
+            return 'T';
+        }
+    }
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String first = scan.next();
+        String last = scan.next();
+        int id = scan.nextInt();
+        int n = scan.nextInt();
+
+        int[] score = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            score[i] = scan.nextInt();
+        }
+
+        Student student = new Student(first, last, id, score);
+
+        student.display();
+        System.out.println("Grade: " + student.calculate());
+    }
+}
