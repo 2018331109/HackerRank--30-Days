@@ -1,0 +1,72 @@
+SUBMISSION
+JAVA
+ 
+ 
+import java.util.*;
+
+class Solution{
+    
+    Stack<Character> stack = new Stack<>();
+    Queue<Character> queue = new LinkedList<>();
+    void pushStack(char x)
+    {
+        stack.push(x);
+    }
+    
+    char printStack()
+    {
+        return stack.pop();
+    }
+    
+    void pushQueue(char x)
+    {
+        queue.add(x);
+    }
+    
+    char printQueue()
+    {
+        return queue.poll();
+    }
+}
+ 
+public class Hackerrank {
+
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        Solution obj = new Solution();
+        
+        String s = scan.nextLine();
+         
+        for(char ch:s.toCharArray())
+        {
+            obj.pushStack(ch);
+            obj.pushQueue(ch);
+        }
+        
+        boolean f=true;
+        
+        for(int i=0;i<s.length();i++)
+        {
+            char a=obj.printStack();
+            char b=obj.printQueue();
+            if(a != b)
+            {
+                f=false;
+                break;
+            }
+        }
+        
+        if(f)
+        {
+            System.out.println("The word, "+s+", is a palindrome.");
+        }
+        else
+        {
+            System.out.println("The word, "+s+", is not a palindrome.");
+        }
+        
+        
+        
+    }
+}
